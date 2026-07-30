@@ -1,0 +1,304 @@
+RAPPORT DU MINI-PROJET JAVASCRIPT
+
+Système de gestion de tâches
+
+1. Introduction
+
+Dans le cadre de notre mini-projet JavaScript, nous avons réalisé une application web de gestion de tâches quotidiennes. L'objectif de ce travail est de mettre en pratique les connaissances acquises en HTML5, CSS3 et JavaScript afin de concevoir une application web interactive et dynamique.
+
+Pour réaliser ce projet, nous avons utilisé trois technologies principales. HTML5 a permis de créer la structure et le contenu de la page web, CSS3 a été utilisé pour la mise en forme et l'amélioration de l'interface graphique, tandis que JavaScript a permis d'ajouter l'interactivité et de rendre l'application dynamique.
+
+L'application permet à l'utilisateur de saisir une tâche, d'ajouter une description, d'afficher les tâches enregistrées, de modifier leur statut, de les supprimer et de consulter les statistiques. Ces fonctionnalités correspondent aux exigences principales du cahier des charges du mini-projet. 
+
+
+---
+
+2. Présentation des technologies utilisées
+
+2.1. HTML5
+
+Le HTML5 (HyperText Markup Language) est utilisé pour construire la structure de la page web.
+
+Dans notre application, le HTML permet de créer :
+
+le titre de l'application ;
+
+le formulaire d'ajout d'une tâche ;
+
+le champ du nom de la tâche ;
+
+le champ de description ;
+
+le bouton « Ajouter » ;
+
+la liste des tâches ;
+
+la partie réservée aux statistiques ;
+
+le pied de page.
+
+
+Le cahier des charges demande notamment une zone de saisie, un espace d'affichage de la liste des tâches et un bloc dédié aux statistiques. 
+
+Les principales balises HTML utilisées
+
+Balise	Rôle
+
+<!DOCTYPE html>	Indique que le document utilise HTML5.
+<html>	Contient l'ensemble du document HTML.
+<head>	Contient les informations générales de la page.
+<meta>	Définit les informations techniques de la page, comme l'encodage.
+<title>	Définit le titre affiché dans l'onglet du navigateur.
+<link>	Permet de relier le fichier HTML au fichier CSS.
+<body>	Contient tous les éléments visibles de la page.
+<header>	Définit l'en-tête de la page.
+<h1>	Définit le titre principal.
+<h2>	Définit les titres des différentes sections.
+<h3>	Définit les sous-titres des statistiques.
+<p>	Permet d'afficher un paragraphe ou un texte.
+<main>	Contient le contenu principal de la page.
+<section>	Permet d'organiser le contenu en différentes sections.
+<form>	Permet de créer le formulaire de saisie.
+<label>	Donne un nom ou une indication à un champ.
+<input>	Permet à l'utilisateur de saisir le nom d'une tâche.
+<textarea>	Permet de saisir une description plus longue.
+<button>	Crée les boutons d'action.
+<ul>	Crée une liste non ordonnée.
+<li>	Représente un élément de la liste.
+<div>	Permet de regrouper des éléments dans un bloc.
+<footer>	Définit le pied de page.
+<script>	Permet de relier le fichier HTML au fichier JavaScript.
+
+
+
+---
+
+3. Code HTML utilisé
+
+Le fichier index.html constitue la structure principale de notre application.
+                >
+
+               
+Explication du fonctionnement du HTML
+
+Nous avons d'abord créé la structure générale avec <!DOCTYPE html>, <html>, <head> et <body>.
+
+Ensuite, la balise <header> contient le titre principal de l'application. La balise <main> contient les trois parties principales du projet :
+
+La section d'ajout : elle contient le formulaire permettant de saisir une tâche.
+
+La section de la liste : elle permet d'afficher les tâches ajoutées.
+
+La section des statistiques : elle affiche le nombre total de tâches, le nombre de tâches terminées et le nombre de tâches restantes.
+
+
+Enfin, la balise <script> permet de connecter le fichier HTML au fichier JavaScript.
+
+
+---
+
+4. CSS3 : mise en forme de l'application
+
+Le CSS3 (Cascading Style Sheets) permet de modifier l'apparence et la présentation de notre application.
+
+Nous avons utilisé le CSS pour :
+
+définir la couleur de fond ;
+
+modifier la police d'écriture ;
+
+organiser les différentes sections ;
+
+mettre en forme le formulaire ;
+
+styliser les boutons ;
+
+améliorer l'affichage de la liste ;
+
+organiser les blocs de statistiques.
+
+
+Le cahier des charges précise que la page doit être correctement structurée en CSS et comporter un titre, une zone de saisie, une liste de tâches et un bloc de statistiques. 
+
+Code CSS utilisé
+
+
+Principales propriétés CSS utilisées
+
+Propriété	Rôle
+
+font-family	Définit la police d'écriture.
+margin	Définit les marges extérieures.
+padding	Définit les espaces intérieurs.
+background-color	Définit la couleur de fond.
+color	Définit la couleur du texte.
+text-align	Permet d'aligner le texte.
+width	Définit la largeur d'un élément.
+display: flex	Permet d'organiser les éléments de manière flexible.
+flex-direction	Définit la direction des éléments flexibles.
+gap	Définit l'espace entre les éléments.
+border	Définit une bordure.
+border-radius	Arrondit les coins d'un élément.
+cursor	Modifie l'apparence du curseur.
+
+
+
+---
+
+5. JavaScript : rendre l'application interactive
+
+Le JavaScript est la partie qui permet de rendre notre application dynamique et interactive.
+
+Nous l'avons utilisé pour :
+
+récupérer les informations saisies par l'utilisateur ;
+
+ajouter une nouvelle tâche ;
+
+afficher les tâches ;
+
+changer le statut d'une tâche ;
+
+supprimer une tâche ;
+
+calculer automatiquement les statistiques.
+
+
+Le projet demande notamment qu'une tâche puisse être ajoutée, qu'elle puisse passer de « À faire » à « Terminée », qu'elle puisse être supprimée et que les statistiques soient automatiquement mises à jour. 
+
+Code JavaScript utilisé
+
+const formulaire = document.getElementById("formulaire-tache");
+const nomTache = document.getElementById("nom-tache");
+const description = document.getElementById("description");
+const listeTaches = document.getElementById("liste-taches");
+
+const totalTaches = document.getElementById("total-taches");
+const tachesTerminees = document.getElementById("taches-terminees");
+const tachesRestantes = document.getElementById("taches-restantes");
+
+
+   
+6. Principales fonctions JavaScript utilisées
+
+document.getElementById()
+
+Cette méthode permet de récupérer un élément HTML grâce à son identifiant id.
+
+Exemple :
+
+const nomTache = document.getElementById("nom-tache");
+
+Elle permet à JavaScript d'accéder au champ dans lequel l'utilisateur saisit le nom de la tâche.
+
+addEventListener()
+
+Cette méthode permet de détecter une action de l'utilisateur.
+
+Dans notre projet, elle permet de détecter la validation du formulaire.
+
+preventDefault()
+
+Cette instruction empêche le formulaire de recharger la page lorsqu'il est envoyé.
+
+push()
+
+Cette méthode permet d'ajouter une nouvelle tâche dans le tableau taches.
+
+forEach()
+
+Elle permet de parcourir toutes les tâches afin de les afficher une par une.
+
+createElement()
+
+Cette méthode permet de créer dynamiquement un élément HTML.
+
+Dans notre projet, elle permet de créer un élément <li> pour chaque tâche.
+
+innerHTML
+
+Permet d'insérer ou de modifier du contenu HTML dans un élément.
+
+appendChild()
+
+Permet d'ajouter un élément créé avec JavaScript dans la page HTML.
+
+filter()
+
+Permet de sélectionner les tâches qui correspondent à une condition. Dans notre projet, elle permet de compter les tâches terminées.
+
+splice()
+
+Permet de supprimer une tâche du tableau.
+
+reset()
+
+Permet de réinitialiser le formulaire après l'ajout d'une tâche.
+
+
+---
+
+7. Fonctionnement général de l'application
+
+Le fonctionnement de notre application se déroule de la manière suivante :
+
+Étape 1 : L'utilisateur saisit le nom de la tâche et éventuellement une description.
+
+Étape 2 : Il clique sur le bouton « Ajouter ».
+
+Étape 3 : JavaScript récupère les informations et crée une nouvelle tâche.
+
+Étape 4 : La tâche est ajoutée à la liste et son statut initial est « À faire ».
+
+Étape 5 : L'utilisateur peut cliquer sur « Terminer » pour modifier le statut de la tâche.
+
+Étape 6 : L'utilisateur peut cliquer sur « Supprimer » pour retirer définitivement une tâche.
+
+Étape 7 : Après chaque modification, les statistiques sont automatiquement actualisées.
+
+Les statistiques permettent de connaître :
+
+le nombre total de tâches ;
+
+le nombre de tâches terminées ;
+
+le nombre de tâches restantes.
+
+
+Cette organisation correspond aux fonctionnalités obligatoires prévues dans le sujet du mini-projet. 
+
+
+---
+
+8. Organisation des fichiers
+
+Pour réaliser le projet, nous avons organisé notre travail en trois fichiers principaux :
+
+Gestion-Taches/
+│
+├── index.html
+├── style.css
+└── script.js
+
+index.html
+
+Contient la structure de l'application et les différentes balises HTML.
+
+style.css
+
+Contient les règles CSS qui permettent de définir l'apparence et la mise en forme de l'application.
+
+script.js
+
+Contient le code JavaScript qui permet de gérer les interactions et le fonctionnement dynamique de l'application.
+
+
+---
+
+9. Conclusion
+
+Pour conclure, ce mini-projet nous a permis de mettre en pratique les connaissances acquises en HTML5, CSS3 et JavaScript. Nous avons appris à construire la structure d'une application web avec HTML, à améliorer son apparence grâce au CSS et à la rendre interactive avec JavaScript.
+
+La réalisation de ce système de gestion de tâches nous a également permis de comprendre comment les trois technologies peuvent fonctionner ensemble. HTML construit la structure, CSS améliore la présentation et JavaScript assure le fonctionnement dynamique de l'application.
+
+Grâce à cette application, l'utilisateur peut gérer ses tâches quotidiennes en les ajoutant, en consultant leur statut, en les terminant ou en les supprimant. Les statistiques permettent également de suivre automatiquement l'évolution des tâches. Le projet répond ainsi aux principales exigences du cahier des charges, qui demande une application fonctionnelle réalisée avec les technologies web de base, sans framework.

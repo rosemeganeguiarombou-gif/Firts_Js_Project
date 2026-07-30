@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestionnaire de Tâches</title>
+
+    <!-- Police Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background-blur"></div>
+
+<div class="app-container">
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+
+    <header class="app-header">
+
+        <div>
+
+            <h1>📋 Gestionnaire de Tâches</h1>
+
+            <p class="subtitle">
+                Organisez facilement vos tâches quotidiennes.
+            </p>
+
+        </div>
+
+        <button
+                id="darkModeToggle"
+                class="dark-button"
+                title="Mode sombre">
+
+            🌙
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ========================= -->
+    <!-- FORMULAIRE -->
+    <!-- ========================= -->
+
+    <section class="card">
+
+        <form id="taskForm">
+
+            <div class="form-row">
+
+                <div class="input-group">é
+
+                    <label for="taskName">
+                        Nom de la tâche
+                    </label>
+
+                    <input
+                            id="taskName"
+                            type="text"
+                            placeholder="Ex : Préparer le rapport..."
+                            required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="taskPriority">
+                        Priorité
+                    </label>
+
+                    <select id="taskPriority">
+
+                        <option value="haute">
+                            🔴 Haute
+                        </option>
+
+                        <option value="moyenne" selected>
+                            🟡 Moyenne
+                        </option>
+
+                        <option value="basse">
+                            🟢 Faible
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="taskDescription">
+
+                    Description
+
+                </label>
+
+                <textarea
+
+                        id="taskDescription"
+
+                        placeholder="Description facultative...">
+
+                </textarea>
+
+            </div>
+
+
+            <button
+                    type="submit"
+                    class="btn-primary">
+
+                ➕ Ajouter la tâche
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- RECHERCHE -->
+    <!-- ========================= -->
+
+    <section class="card controls-card">
+
+        <div class="search-box">
+
+            <span class="search-icon">
+
+                🔍
+
+            </span>
+
+            <input
+
+                    id="searchInput"
+
+                    type="text"
+
+                    placeholder="Rechercher une tâche...">
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button
+                    class="filter-btn active"
+                    data-filter="toutes">
+
+                Toutes
+
+            </button>
+
+            <button
+                    class="filter-btn"
+                    data-filter="a-faire">
+
+                À faire
+
+            </button>
+
+            <button
+                    class="filter-btn"
+                    data-filter="terminee">
+
+                Terminées
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- STATISTIQUES -->
+    <!-- ========================= -->
+
+    <section class="stats-section">
+
+        <div class="stat-card">
+
+            <div class="emoji">
+
+                📌
+
+            </div>
+
+            <span
+                    class="stat-number"
+                    id="statTotal">
+
+                0
+
+            </span>
+
+            <span class="stat-label">
+
+                Total
+
+            </span>
+
+        </div>
+
+
+
+        <div class="stat-card stat-success">
+
+            <div class="emoji">
+
+                ✅
+
+            </div>
+
+            <span
+                    class="stat-number"
+                    id="statDone">
+
+                0
+
+            </span>
+
+            <span class="stat-label">
+
+                Terminées
+
+            </span>
+
+        </div>
+
+
+
+        <div class="stat-card stat-warning">
+
+            <div class="emoji">
+
+                ⏳
+
+            </div>
+
+            <span
+                    class="stat-number"
+                    id="statTodo">
+
+                0
+
+            </span>
+
+            <span class="stat-label">
+
+                Restantes
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- BARRE DE PROGRESSION -->
+    <!-- ========================= -->
+
+    <section class="card progress-card">
+
+        <div class="progress-header">
+
+            <span>
+
+                Progression
+
+            </span>
+
+            <span id="progressText">
+
+                0%
+
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                    class="progress-bar"
+                    id="progressBar">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- LISTE DES TÂCHES -->
+    <!-- ========================= -->
+
+    <section class="card tasks-card">
+
+        <div class="task-header">
+
+            <h2>
+
+                Mes tâches
+
+            </h2>
+
+        </div>
+
+        <ul
+                id="taskList"
+                class="task-list">
+
+        </ul>
+
+        <div
+                id="emptyMessage"
+                class="empty-state">
+
+            <div class="empty-icon">
+
+                📝
+
+            </div>
+
+            <h3>
+
+                Aucune tâche
+
+            </h3>
+
+            <p>
+
+                Ajoutez votre première tâche pour commencer.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+
+            Mini-Projet JavaScript • Gestionnaire de Tâches
+
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
